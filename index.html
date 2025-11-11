@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDesainPro - Jasa Pembuatan Website Profesional & Murah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom CSS for better visuals */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .premium-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-button {
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pulse-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .pulse-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-pattern {
+            background-color: #f9fafb;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .price-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .form-input {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .order-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .order-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .accordion-item {
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .accordion-header {
+            background: white;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .accordion-header:hover {
+            background: #f9fafb;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .accordion-content.active {
+            max-height: 300px;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Mobile menu improvements */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Image placeholder styling */
+        .image-placeholder {
+            background: linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 3rem;
+            width: 100%;
+            height: 100%;
+            min-height: 224px;
+        }
+        
+        .template-image {
+            width: 100%;
+            height: 224px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .template-image.error {
+            display: none;
+        }
+        
+        .template-image.error + .image-placeholder {
+            display: flex;
+        }
+        
+        .image-placeholder {
+            display: none;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Header -->
+    <header class="fixed top-0 w-full glass-morphism shadow-lg z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">WebDesainPro</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-purple-200 transition font-medium">Home</a>
+                    <a href="#templates" class="text-white hover:text-purple-200 transition font-medium">Template</a>
+                    <a href="#pricing" class="text-white hover:text-purple-200 transition font-medium">Paket Harga</a>
+                    <a href="#about" class="text-white hover:text-purple-200 transition font-medium">Tentang Kami</a>
+                    <a href="#order" class="text-white hover:text-purple-200 transition font-medium">Pesan Sekarang</a>
+                    <a href="https://wa.me/6289653135369?text=Halo%2C+saya+ingin+konsultasi+tentang+pembuatan+website" 
+                       target="_blank" 
+                       class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition flex items-center space-x-2 font-medium">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white shadow-2xl z-50 lg:hidden">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold">WebDesainPro</span>
+                </div>
+                <button id="closeMobileMenu" class="text-gray-500 p-2">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <a href="#home" class="block py-3 text-gray-700 hover:text-purple-600 transition font-medium">
+                    <i class="fas fa-home mr-3"></i>Home
+                </a>
+                <a href="#templates" class="block py-3 text-gray-700 hover:text-purple-600 transition font-medium">
+                    <i class="fas fa-laptop mr-3"></i>Template Website
+                </a>
+                <a href="#pricing" class="block py-3 text-gray-700 hover:text-purple-600 transition font-medium">
+                    <i class="fas fa-tag mr-3"></i>Paket Harga
+                </a>
+                <a href="#about" class="block py-3 text-gray-700 hover:text-purple-600 transition font-medium">
+                    <i class="fas fa-info-circle mr-3"></i>Tentang Kami
+                </a>
+                <a href="#order" class="block py-3 text-gray-700 hover:text-purple-600 transition font-medium">
+                    <i class="fas fa-shopping-cart mr-3"></i>Pesan Sekarang
+                </a>
+                <div class="pt-4 border-t">
+                    <a href="https://wa.me/6289653135369?text=Halo%2C+saya+ingin+konsultasi+tentang+pembuatan+website" 
+                       target="_blank" 
+                       class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition flex items-center justify-center space-x-2 font-semibold">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Konsultasi via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-20 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-white">
+                    <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                        <span class="text-sm font-semibold">🚀 Special Offer - Diskon 20% untuk 10 Pelanggan Pertama</span>
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight floating-animation">
+                        Bangun Website <span class="text-yellow-300">Profesional</span> Mulai dari <span class="text-yellow-300">Rp100.000</span>
+                    </h1>
+                    <p class="text-xl mb-8 opacity-90">
+                        Kami siap membantu bisnis Anda tampil online dengan cepat, murah, dan berkualitas tinggi. Dapatkan website impian Anda dalam 3 hari!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#templates" class="pulse-button bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition text-center">
+                            <i class="fas fa-eye mr-2"></i>Lihat Template
+                        </a>
+                        <a href="#order" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-purple-600 transition text-center">
+                            <i class="fas fa-rocket mr-2"></i>Mulai Sekarang
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-8 mt-12">
+                        <div>
+                            <div class="text-3xl font-bold">500+</div>
+                            <div class="text-sm opacity-75">Website Selesai</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">98%</div>
+                            <div class="text-sm opacity-75">Klien Puas</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">24/7</div>
+                            <div class="text-sm opacity-75">Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                        <div class="absolute -bottom-8 -right-4 w-72 h-72 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                        <div class="relative">
+                            <img src="https://picsum.photos/seed/webdesign/600/500" alt="Website Design" class="rounded-2xl shadow-2xl relative z-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Mengapa Memilih WebDesainPro?</h2>
+                <p class="text-gray-600 text-lg">Keunggulan yang membuat kami berbeda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Pengerjaan Cepat</h3>
+                    <p class="text-gray-600">Website siap dalam 3-7 hari</p>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">100% Responsif</h3>
+                    <p class="text-gray-600">Tampilan sempurna di semua perangkat</p>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Garansi 30 Hari</h3>
+                    <p class="text-gray-600">Perbaikan gratis untuk bug & error</p>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Support 24/7</h3>
+                    <p class="text-gray-600">Bantuan kapan saja Anda butuhkan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="py-16 section-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Pilihan Template Website</h2>
+                <p class="text-gray-600 text-lg">Pilih template yang sesuai dengan bisnis Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Template 1: Company Profile -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/company-website-template/400/250" 
+                                 alt="Company Profile" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Populer
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Company Profile</h3>
+                        <p class="text-gray-600 mb-4">Tampilan profesional untuk perusahaan Anda</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp250.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">3-5 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('Company Profile')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 2: Toko Online -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/ecommerce-store-template/400/250" 
+                                 alt="Toko Online" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Best Seller
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Toko Online</h3>
+                        <p class="text-gray-600 mb-4">Jual produk Anda dengan mudah online</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp400.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">7-10 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('Toko Online')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 3: Portofolio -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/portfolio-website-template/400/250" 
+                                 alt="Portofolio" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Portofolio</h3>
+                        <p class="text-gray-600 mb-4">Tampilkan karya terbaik Anda</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp200.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">2-4 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('Portofolio')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 4: Sekolah -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/school-website-template/400/250" 
+                                 alt="Sekolah" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sekolah</h3>
+                        <p class="text-gray-600 mb-4">Website untuk institusi pendidikan</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp300.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">5-7 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('Sekolah')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 5: UMKM -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/umkm-business-template/400/250" 
+                                 alt="UMKM" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-store"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Murah
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">UMKM</h3>
+                        <p class="text-gray-600 mb-4">Solusi terjangkau untuk bisnis kecil</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp150.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">2-3 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('UMKM')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 6: Blog -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="https://picsum.photos/seed/blog-website-template/400/250" 
+                                 alt="Blog" 
+                                 class="template-image"
+                                 onerror="this.classList.add('error')">
+                            <div class="image-placeholder">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Blog</h3>
+                        <p class="text-gray-600 mb-4">Bagikan ide dan cerita Anda</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-purple-600">Rp180.000</span>
+                                <div class="text-sm text-gray-500">Mulai dari</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">Estimasi</div>
+                                <div class="font-semibold">3-4 hari</div>
+                            </div>
+                        </div>
+                        <button onclick="scrollToOrder('Blog')" class="order-button">
+                            <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Paket Harga</h2>
+                <p class="text-gray-600 text-lg">Pilih paket yang sesuai dengan kebutuhan Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                        <div class="text-4xl font-bold text-purple-600 mb-2">Rp100.000</div>
+                        <p class="text-gray-600">Website 1 halaman</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>1 Halaman Landing Page</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Desain Responsif</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>SEO Basic</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Revisi 2x</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToOrder('Basic')" class="w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 transition font-semibold">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <!-- Standard Package -->
+                <div class="premium-card rounded-2xl shadow-xl p-8 text-white card-hover transform scale-105">
+                    <div class="text-center mb-8 relative z-10">
+                        <div class="price-badge">POPULER</div>
+                        <h3 class="text-2xl font-bold mb-2">Standar</h3>
+                        <div class="text-4xl font-bold mb-2">Rp250.000</div>
+                        <p>Website 3-5 halaman</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 relative z-10">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span>3-5 Halaman Website</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span>Form Kontak</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span>Integrasi WhatsApp</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span>Revisi 5x</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToOrder('Standar')" class="w-full bg-white text-purple-600 py-3 rounded-xl hover:bg-gray-100 transition font-bold relative z-10">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <div class="price-badge">PREMIUM</div>
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <div class="text-4xl font-bold text-purple-600 mb-2">Rp400.000</div>
+                        <p>Website dinamis + domain</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Website Dinamis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Domain Gratis 1 Tahun</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Form WhatsApp Otomatis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                            <span>Revisi Unlimited</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToOrder('Premium')" class="w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 transition font-semibold">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">Tentang WebDesainPro</h2>
+                    <p class="text-gray-600 text-lg">Solusi terpercaya untuk kebutuhan website Anda</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-3xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="https://picsum.photos/seed/team/600/500" alt="Our Team" class="rounded-2xl shadow-2xl w-full">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-6">Mengapa Memilih Kami?</h3>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                                WebDesainPro adalah tim profesional yang berpengalaman lebih dari 5 tahun dalam industri pengembangan website. Kami telah membantu ratusan bisnis dari berbagai industri untuk go digital dengan website yang profesional dan terjangkau.
+                            </p>
+                            <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                                Visi kami adalah membuat setiap bisnis, dari UMKM hingga perusahaan besar, dapat memiliki website berkualitas tinggi tanpa harus mengeluarkan biaya yang mahal.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-white rounded-xl p-4 text-center shadow-lg">
+                                    <div class="stats-number">500+</div>
+                                    <div class="text-gray-600 font-medium">Website Selesai</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 text-center shadow-lg">
+                                    <div class="stats-number">98%</div>
+                                    <div class="text-gray-600 font-medium">Klien Puas</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 text-center shadow-lg">
+                                    <div class="stats-number">5+</div>
+                                    <div class="text-gray-600 font-medium">Tahun Pengalaman</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 text-center shadow-lg">
+                                    <div class="stats-number">24/7</div>
+                                    <div class="text-gray-600 font-medium">Support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 section-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Pertanyaan Umum</h2>
+                <p class="text-gray-600 text-lg">Jawaban untuk pertanyaan yang sering diajukan</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="accordion-item">
+                    <button onclick="toggleAccordion(this)" class="accordion-header w-full text-left flex justify-between items-center">
+                        <span class="font-semibold">Berapa lama pengerjaan website?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 text-gray-600">
+                            Pengerjaan website tergantung pada kompleksitasnya. Untuk paket Basic (1 halaman) sekitar 2-3 hari, paket Standar (3-5 halaman) sekitar 5-7 hari, dan paket Premium sekitar 7-14 hari.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button onclick="toggleAccordion(this)" class="accordion-header w-full text-left flex justify-between items-center">
+                        <span class="font-semibold">Apakah sudah termasuk hosting?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 text-gray-600">
+                            Untuk paket Premium sudah termasuk domain gratis 1 tahun. Hosting dapat kami bantu setup dengan biaya tambahan yang terjangkau atau Anda bisa menggunakan hosting sendiri.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button onclick="toggleAccordion(this)" class="accordion-header w-full text-left flex justify-between items-center">
+                        <span class="font-semibold">Apakah website bisa diedit sendiri?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 text-gray-600">
+                            Ya! Untuk paket Standar dan Premium, kami akan memberikan akses admin sehingga Anda bisa mengedit konten sendiri. Kami juga menyediakan panduan video tutorial.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button onclick="toggleAccordion(this)" class="accordion-header w-full text-left flex justify-between items-center">
+                        <span class="font-semibold">Bagaimana sistem pembayarannya?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 text-gray-600">
+                            Pembayaran dilakukan 50% di awal sebagai DP dan 50% setelah website selesai. Kami menerima transfer bank, e-wallet, dan pembayaran melalui marketplace.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button onclick="toggleAccordion(this)" class="accordion-header w-full text-left flex justify-between items-center">
+                        <span class="font-semibold">Apakah ada garansi?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-6 text-gray-600">
+                            Kami memberikan garansi 30 hari untuk perbaikan bug/error. Selain itu, kami juga menyediakan paket maintenance bulanan untuk update keamanan dan performa website.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Testimoni Pelanggan</h2>
+                <p class="text-gray-600 text-lg">Apa kata klien kami tentang WebDesainPro</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://picsum.photos/seed/person1/60/60" alt="Customer" class="w-14 h-14 rounded-full mr-4">
+                            <div>
+                                <div class="font-bold">Budi Santoso</div>
+                                <div class="text-sm text-gray-600">Owner Toko Online</div>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-600">
+                            "Website yang dibuat WebDesainPro sangat profesional dan membantu penjualan saya meningkat 300%! Pelayanan sangat ramah dan responsif."
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://picsum.photos/seed/person2/60/60" alt="Customer" class="w-14 h-14 rounded-full mr-4">
+                            <div>
+                                <div class="font-bold">Siti Nurhaliza</div>
+                                <div class="text-sm text-gray-600">Freelancer</div>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-600">
+                            "Portofolio website yang dibuat sangat elegan dan modern. Klien saya jadi lebih mudah melihat karya-karya saya. Harga sangat terjangkau!"
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://picsum.photos/seed/person3/60/60" alt="Customer" class="w-14 h-14 rounded-full mr-4">
+                            <div>
+                                <div class="font-bold">Ahmad Fauzi</div>
+                                <div class="text-sm text-gray-600">Kepala Sekolah</div>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-600">
+                            "Website sekolah kami jadi lebih profesional dan informatif. Orang tua murah jadi mudah mendapatkan informasi. Terima kasih WebDesainPro!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order" class="py-16 bg-gradient-to-br from-purple-600 to-blue-600">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Form Pemesanan Website</h2>
+                    <p class="text-white opacity-90 text-lg">Isi form lengkap untuk memesan website impian Anda</p>
+                </div>
+                
+                <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+                    <form id="orderForm" onsubmit="sendToWhatsApp(event)">
+                        <!-- Data Pemesan -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold mb-6 text-purple-600">
+                                <i class="fas fa-user mr-3"></i>Data Pemesan
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Nama Lengkap *</label>
+                                    <input type="text" name="nama" required class="form-input">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+                                    <input type="email" name="email" required class="form-input">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Nomor WhatsApp *</label>
+                                    <input type="tel" name="whatsapp" required placeholder="08xxxxxxxxxx" class="form-input">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Nama Bisnis / Brand *</label>
+                                    <input type="text" name="bisnis" required class="form-input">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 font-semibold mb-2">Alamat Lengkap *</label>
+                                    <input type="text" name="alamat" required class="form-input">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 font-semibold mb-2">Instagram / Media Sosial (opsional)</label>
+                                    <input type="text" name="instagram" placeholder="@username" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detail Website -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold mb-6 text-purple-600">
+                                <i class="fas fa-laptop-code mr-3"></i>Detail Website
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Jenis Website *</label>
+                                    <select name="jenis" required class="form-input">
+                                        <option value="">-- Pilih Jenis Website --</option>
+                                        <option value="Company Profile">Company Profile</option>
+                                        <option value="Toko Online (E-Commerce)">Toko Online (E-Commerce)</option>
+                                        <option value="Portofolio / Personal Branding">Portofolio / Personal Branding</option>
+                                        <option value="Sekolah / Edukasi">Sekolah / Edukasi</option>
+                                        <option value="UMKM / Bisnis Lokal">UMKM / Bisnis Lokal</option>
+                                        <option value="Blog / Artikel Pribadi">Blog / Artikel Pribadi</option>
+                                        <option value="Event / Undangan Digital">Event / Undangan Digital</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Paket Website *</label>
+                                    <select name="paket" required class="form-input">
+                                        <option value="">-- Pilih Paket --</option>
+                                        <option value="Basic - Rp100.000">Basic - Rp100.000</option>
+                                        <option value="Standar - Rp250.000">Standar - Rp250.000</option>
+                                        <option value="Premium - Rp400.000">Premium - Rp400.000</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Template Desain *</label>
+                                    <select name="template" required class="form-input">
+                                        <option value="">-- Pilih Template --</option>
+                                        <option value="Modern Minimalist">Modern Minimalist</option>
+                                        <option value="Luxury Dark">Luxury Dark</option>
+                                        <option value="Corporate Elegant">Corporate Elegant</option>
+                                        <option value="Fresh Business">Fresh Business</option>
+                                        <option value="Creative Agency">Creative Agency</option>
+                                        <option value="Blue Tech">Blue Tech</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Jumlah Halaman *</label>
+                                    <input type="number" name="halaman" min="1" max="10" required class="form-input">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Warna Dominan *</label>
+                                    <input type="text" name="warna" placeholder="Contoh: Biru, Hijau, Merah" required class="form-input">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Menu Navigasi *</label>
+                                    <input type="text" name="menu" placeholder="Contoh: Home, Tentang, Produk, Kontak" required class="form-input">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 font-semibold mb-2">Deskripsi Bisnis *</label>
+                                    <textarea name="deskripsi" rows="4" required class="form-input"></textarea>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 font-semibold mb-2">Produk / Layanan *</label>
+                                    <textarea name="produk" rows="4" required class="form-input"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="submit-button text-lg px-8">
+                                <i class="fab fa-whatsapp mr-2"></i>Kirim Data ke WhatsApp
+                            </button>
+                            <p class="text-gray-500 text-sm mt-4">
+                                Data Anda akan langsung dikirim ke WhatsApp kami untuk proses lebih lanjut
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">WebDesainPro</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Solusi terpercaya untuk pembuatan website profesional dan terjangkau.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#templates" class="text-gray-400 hover:text-white transition">Template</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>puguh.jogja.x@gmail.com
+                        </p>
+                        <p class="text-gray-400">
+                            <i class="fab fa-whatsapp mr-2"></i>+6289653135369
+                        </p>
+                    </div>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://wa.me/6289653135369" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                        <a href="mailto:puguh.jogja.x@gmail.com" class="text-gray-400 hover:text-white transition">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 WebDesainPro. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Accordion
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Scroll to Order Form
+        function scrollToOrder(template) {
+            const orderSection = document.getElementById('order');
+            orderSection.scrollIntoView({ behavior: 'smooth' });
+            
+            if (template) {
+                setTimeout(() => {
+                    const jenisSelect = document.querySelector('select[name="jenis"]');
+                    if (jenisSelect) {
+                        for (let option of jenisSelect.options) {
+                            if (option.value.includes(template)) {
+                                jenisSelect.value = option.value;
+                                break;
+                            }
+                        }
+                    }
+                }, 500);
+            }
+        }
+
+        // Send to WhatsApp
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            let message = "Halo, saya ingin memesan jasa pembuatan website:\n\n";
+            message += "🔹 Data Pemesan:\n";
+            message += `- Nama: ${formData.get('nama')}\n`;
+            message += `- Email: ${formData.get('email')}\n`;
+            message += `- WhatsApp: ${formData.get('whatsapp')}\n`;
+            message += `- Bisnis: ${formData.get('bisnis')}\n`;
+            message += `- Alamat: ${formData.get('alamat')}\n`;
+            message += `- Instagram: ${formData.get('instagram') || '-'}\n\n`;
+            
+            message += "🔹 Detail Website:\n";
+            message += `- Jenis Website: ${formData.get('jenis')}\n`;
+            message += `- Paket: ${formData.get('paket')}\n`;
+            message += `- Template: ${formData.get('template')}\n`;
+            message += `- Jumlah Halaman: ${formData.get('halaman')}\n`;
+            message += `- Warna Dominan: ${formData.get('warna')}\n`;
+            message += `- Menu: ${formData.get('menu')}\n`;
+            message += `- Deskripsi Bisnis: ${formData.get('deskripsi')}\n`;
+            message += `- Produk/Layanan: ${formData.get('produk')}\n\n`;
+            
+            message += "🔹 File Terlampir (jika ada): Logo / Gambar\n\n";
+            message += "Terima kasih, saya menunggu konfirmasi dari tim WebDesainPro.";
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/6289653135369?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'fixed top-24 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            successDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Data berhasil dikirim ke WhatsApp!';
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 3000);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
